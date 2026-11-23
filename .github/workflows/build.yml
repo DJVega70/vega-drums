@@ -26,6 +26,7 @@ jobs:
   macos:
     name: macOS VST3 + AU (Universal)
     runs-on: macos-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - name: Configure Vega Productions Drums
@@ -46,7 +47,7 @@ jobs:
 
   release:
     name: Publish release
-    needs: [windows, macos]
+    needs: [windows]          # the Mac build is optional: GitHub's Mac runners are often busy
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
