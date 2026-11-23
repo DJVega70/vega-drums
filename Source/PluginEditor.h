@@ -9,7 +9,7 @@ public:
     ~VegaDrumsEditor() override;
     void paint (juce::Graphics&) override {}
     void resized() override;
-    static constexpr int W = 1200, H = 720;
+    static constexpr int W = 1600, H = 960;
     class Main;
 private:
     void timerCallback() override;
